@@ -297,7 +297,7 @@ ul#nav li.current a {
 #register label {
     font: 15px/24px 'opensans-bold', sans-serif;
     margin: 12px 0;
-    color: #EBEEEE;
+    color: #0F0F0F;
     display: inline-block;
     float: left;
     width: 26%;
@@ -317,7 +317,7 @@ ul#nav li.current a {
 
 #register input:focus {
 	color: #FFFFFF;
-	background-color: #303030;
+	background-color: #00AAFF;
 }
 
 #register button.submit {
