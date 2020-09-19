@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+    <!--<![endif]-->
+    <head>
+        <!--- Basic Page Needs -->
+        <meta charset="utf-8" />
+        <title>Ceevee - Free Responsive HTML5/CSS3 Template</title>
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <!-- Mobile Specific Metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <!-- CSS -->
+        <link rel="stylesheet" href="../static/css/default.css" />
+        <link rel="stylesheet" href="../static/css/layout.css" />
+        <link rel="stylesheet" href="../static/css/media-queries.css" />
+        <link rel="stylesheet" href="../static/css/magnific-popup.css" />
+        <!-- Script -->
+        <!-- Favicons -->
+        <link rel="shortcut icon" href="../static/images/favicon.png" />
+        <script>
+            let counter = 2;
+            let limit = 7;
+            function addPlayer() {
+                if (counter > limit) {
+                    alert("You have reached the limit of adding players");
+                } else {
+                    let newDiv = document.createElement("div");
+                    newDiv.innerHTML = "<label for='player" + counter + "'>Player " + counter + " </label>\n" + "<input type='text' size='35' id='player" + counter + "' " + "name='player" + counter + "' autofocus required>";
+                    document.getElementById("registerForm").appendChild(newDiv);
+                    counter++;
+                }
+                if (counter === limit + 1) {
+                    document.getElementById("addPlayerDiv").removeChild(document.getElementById("addPlayer"));
+                }
+            }
+            function validateForm() {
+                for (let i = 2; i <= 5; i++) {
+                    if (document.getElementById("player" + i)) {
+                    } else {
+                        alert("Roster must contain a minimum of 5 plauyers!");
+                        return false;
+                    }
+                }
+                return true;
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Header Section Start -->
+        <header id="home">
+            <!-- navbar -->
+            <nav id="nav-wrap">
+                <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+                <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+                <ul id="nav" class="nav">
+                    <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
+                    <li><a class="smoothscroll" href="#register">Register</a></li>
+                    <li><a class="smoothscroll" href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="row banner">
+                <div class="banner-text">
+                    <h1 class="responsive-headline">The Conquest 2</h1>
+                    <h3>
+                        I'm a Manila based <span>graphic designer</span>, <span>illustrator</span> and <span>webdesigner</span> creating awesome and effective visual identities for companies of all sizes around the globe. Let's
+                        <a class="smoothscroll" href="#register">start scrolling</a> and learn more <a
+                            class="smoothscroll" href="#register">about me</a>.
+                    </h3>
+                    <hr />
+                    <ul class="social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="scrolldown">
+                <a class="smoothscroll" href="#register"><i class="icon-down-circle"></i></a>
+            </p>
+        </header>
+        <!-- Header End -->
+        <!-- Register Section Start -->
+        <section id="register">
+            <div class="row section-head">
+                <div class="two columns header-col">
+                    <h1><span>Registration</span></h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="eight columns">
+                    <form method="POST" id="registerForm" name="registerForm" onsubmit="return validateForm();" action="submit">
+                        <div>
+                            <label for="team_name">Team Name</label>
+                            <input type="text" size="35" id="team_name" name="team_name" autofocus required />
+                        </div>
+                        <div>
+                            <label for="receipt">GPay Receipt</label>
+                            <input type="text" size="35" id="receipt" name="receipt" required />
+                        </div>
+                        <div>
+                            <label for="email">Email</label>
+                            <input type="email" size="35" id="email" name="email" required />
+                        </div>
+                        <div>
+                            <label for="player1">Player1/Captain</label>
+                            <input type="text" size="35" id="player1" name="player1" required />
+                        </div>
+                    </form>
+                    <div id="addPlayerDiv">
+                        <button id="addPlayer" onclick="addPlayer()">Add Player</button>
+                        <button type="submit" form="registerForm" id="submit">Submit</button>
+                    </div>
+                </div>
+                <aside class="four columns footer-widgets">
+                    <h4>Note</h4>
+                    <ul>
+                        <li>
+                            <div><p>Registration fee per player is Rs 50</p></div>
+                        </li>
+                        <li>
+                            <div><p>The Team shall receive an email on successfull registration and another email
+                            when the payment has been acknowledge from our side. So a total of two emails will
+                                be sent.</p></div>
+                        </li>
+                        <li>
+                            <div class="widget widget_contact">
+                                <p>Please provide the player names in the following format "<span>FirstName 'GamingName'
+                                    LastName</span>"</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div><p>A Team can contain a minimum of 5 and maximum of 7 players.</p></div>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+        <!-- Register Section End  -->
+        <!-- Contact Section Start -->
+        <section id="contact">
+            <div class="row section-head">
+                <div class="two columns header-col">
+                    <h1><span>Contact</span></h1>
+                </div>
+                <div class="ten columns">
+                    <p class="lead">For any support contact</p>
+                    <ul>
+                        <li>Sathish 'CPD.bUMbLEbEE' Babu: +919XXXXXXXXX</li>
+                        <li>Sanjay 'CPD.FuckingGeekboy': +919XXXXXXXXX</li>
+                        <li>Vicky 'CPD.CR7' Shan: +919XXXXXXXXX</li>
+                        <li>Sundar 'CPD.Sasuke': +919XXXXXXXXX</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Section End-->
+        <!-- Footer Start -->
+        <footer>
+            <div class="row">
+                <div class="twelve columns">
+                    <ul class="social-links">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    </ul>
+                    <ul class="copyright">
+                        <li>&copy; Copyright 2014 CeeVee</li>
+                        <li>Design by <a href="http://www.styleshout.com/" title="Styleshout" target="_blank">Styleshout</a></li>
+                    </ul>
+                </div>
+                <div id="go-top">
+                    <a class="smoothscroll" title="Back to Top" href="#home"><i class="icon-up-open"></i></a>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer End-->
+    </body>
+</html>
