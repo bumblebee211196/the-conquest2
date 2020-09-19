@@ -291,14 +291,13 @@ ul#nav li.current a {
     margin-top: 6px;
 }
 
-#register form {
-    margin-bottom: 30px;
-}
+/* register form */
+#register form { margin-bottom: 30px; }
 
 #register label {
     font: 15px/24px 'opensans-bold', sans-serif;
     margin: 12px 0;
-    color: #0F0F0F;
+    color: #EBEEEE;
     display: inline-block;
     float: left;
     width: 26%;
@@ -306,7 +305,7 @@ ul#nav li.current a {
 
 #register input {
     padding: 18px 20px;
-    color: #FFFFFF;
+    color: #EEEEEE;
     background: #373233;
     margin-bottom: 42px;
     border: 0;
@@ -314,6 +313,11 @@ ul#nav li.current a {
     font-size: 15px;
     line-height: 24px;
     width: 65%;
+}
+
+#register input:focus {
+	color: #FFFFFF;
+	background-color: #303030;
 }
 
 #register button.submit {
@@ -330,13 +334,8 @@ ul#nav li.current a {
 }
 
 #register button.submit:hover {
-    color: #0D0D0D;
-    background: #FFFFFF;
-}
-
-#register span.required {
-    color: #11ABB0;
-    font-size: 13px;
+	color: #0D0D0D;
+	background: #FFFFFF;
 }
 
 
