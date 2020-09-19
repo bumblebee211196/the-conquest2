@@ -300,13 +300,13 @@ ul#nav li.current a {
     color: #0F0F0F;
     display: inline-block;
     float: left;
-    width: 26%;
+    width: 35%;
 }
 
 #register input {
     padding: 18px 20px;
     color: #EEEEEE;
-    background: #373233;
+    background: #636363;
     margin-bottom: 42px;
     border: 0;
     outline: none;
@@ -317,7 +317,7 @@ ul#nav li.current a {
 
 #register input:focus {
 	color: #FFFFFF;
-	background-color: #00AAFF;
+	background-color: #303030;
 }
 
 #register button.submit {
