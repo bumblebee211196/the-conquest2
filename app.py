@@ -32,6 +32,8 @@ class Teams(db.Model):
 
     def __repr__(self):
         return f'Name: {self.name} ' \
+               f'Email: {self.email}' \
+               f'Players: {self.players}' \
                f'Player1: {self.player1} ' \
                f'Player2: {self.player2} ' \
                f'Player3: {self.player3} ' \
@@ -51,6 +53,7 @@ def submit_form():
     team = Teams()
     count = 5
     team.name = request.form['team_name']
+    team.email = request.form['email']
     team.player1 = request.form['player1']
     team.player2 = request.form['player2']
     team.player3 = request.form['player3']
@@ -70,8 +73,8 @@ def submit_form():
     team.players = count
     db.session.add(team)
     db.session.commit()
+    print(team)
     if team.name:
-
         return 'Team Registered Successfully'
     else:
         return 'Error in registring the team. Try again'
