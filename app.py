@@ -52,7 +52,9 @@ def home():
 def submit_form():
     team = Teams()
     count = 5
-    team.name = request.form['team_name']
+    team.name = team_name = request.form['team_name']
+    if Teams.query.filter_by(name=team_name).first():
+        return 'Team name already registered. Try using other names(s).'
     team.email = request.form['email']
     team.player1 = request.form['player1']
     team.player2 = request.form['player2']
@@ -71,13 +73,16 @@ def submit_form():
         team.player7 = '-'
     team.receipt = request.form['receipt']
     team.players = count
-    db.session.add(team)
-    db.session.commit()
-    print(team)
-    if team.name:
-        return 'Team Registered Successfully'
+    try:
+        db.session.add(team)
+        db.session.commit()
+    except Exception:
+        return f'Error in registaring the Team {team_name}. Please try again sometime.'
     else:
-        return 'Error in registring the team. Try again'
+        if team.name:
+            return f'Team {team_name} registered successfully'
+        else:
+            return f'Error in registaring the Team {team_name}. Please try again sometime.'
 
 
 if __name__ == '__main__':
