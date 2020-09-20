@@ -16,10 +16,10 @@ class MailClient:
             smtp.send_message(message)
 
     @classmethod
-    def send_registration_cofirmation(cls, to_addr):
+    def send_registration_cofirmation(cls, to_addr, team_name):
         env = Environment(loader=FileSystemLoader('./templates'))
         template = env.get_template('mail_template.html')
-        output = template.render(team_name='CPD')
+        output = template.render(team_name=team_name)
         message = EmailMessage()
         message['From'] = MAIL_USER
         message['To'] = to_addr

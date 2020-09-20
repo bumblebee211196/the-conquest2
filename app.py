@@ -82,7 +82,7 @@ def submit_form():
         return f'Error in registaring the Team {team_name}. Please try again sometime.'
     else:
         if team.name:
-            MailClient.send_registration_cofirmation(email)
+            MailClient.send_registration_cofirmation(email, team_name)
             return f'Team {team_name} registered successfully'
         else:
             return f'Error in registaring the Team {team_name}. Please try again sometime.'
