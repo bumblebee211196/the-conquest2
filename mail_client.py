@@ -26,6 +26,3 @@ class MailClient:
         message['Subject'] = 'Team Registration Sucessfull'
         message.add_alternative(output, subtype='html')
         cls._send_message(message)
-
-
-MailClient().send_registration_cofirmation('sathishbabu96n@gmail.com')
