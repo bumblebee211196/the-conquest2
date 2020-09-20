@@ -2,6 +2,8 @@ from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 import os
 
+from mail_client import MailClient
+
 app = Flask(__name__)
 SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://{username}:{password}@{hostname}/{databasename}'.format(
     username=os.environ.get('USERNAME'),
@@ -55,7 +57,7 @@ def submit_form():
     team.name = team_name = request.form['team_name']
     if Teams.query.filter_by(name=team_name).first():
         return 'Team name already registered. Try using other names(s).'
-    team.email = request.form['email']
+    team.email = email = request.form['email']
     team.player1 = request.form['player1']
     team.player2 = request.form['player2']
     team.player3 = request.form['player3']
@@ -80,6 +82,7 @@ def submit_form():
         return f'Error in registaring the Team {team_name}. Please try again sometime.'
     else:
         if team.name:
+            MailClient.send_registration_cofirmation(email)
             return f'Team {team_name} registered successfully'
         else:
             return f'Error in registaring the Team {team_name}. Please try again sometime.'
