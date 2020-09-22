@@ -24,10 +24,12 @@
                     alert("You have reached the limit of adding players");
                 } else {
                     let newDiv = document.createElement("div");
-                    newDiv.innerHTML = "<label for='player" + counter + "'>Player" + counter + " </label>\n" + "<input type='text' size='35' id='player" + counter + "' " + "name='player" + counter + "' autofocus required>";
+                    newDiv.innerHTML = "<label for='player" + counter + "'>Player " + counter + " </label>\n" +
+                        "<input type='text' size='35' id='player" + counter + "' " + "name='player" + counter + "' autofocus required>";
                     document.getElementById("registerForm").appendChild(newDiv);
                     newDiv = document.createElement("div");
-                    newDiv.innerHTML = "<label for='player" + counter + "_id'>Player" + counter + " ID</label>\n" + "<input type='text' size='35' id='player" + counter + "_id' " + "name='player" + counter + "_id' autofocus required>";
+                    newDiv.innerHTML = "<label for='player" + counter + "_id'>Player " + counter + " Steam Friend ID</label>\n" +
+                        "<input type='text' size='35' id='player" + counter + "_id' " + "name='player" + counter + "_id' autofocus required>";
                     document.getElementById("registerForm").appendChild(newDiv);
                     counter++;
                 }
