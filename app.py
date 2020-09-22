@@ -23,6 +23,7 @@ class Teams(db.Model):
     name = db.Column(db.String(256), primary_key=True)
     players = db.Column(db.Integer)
     email = db.Column(db.String(256))
+    mobile = db.Column(db.String(10))
     player1 = db.Column(db.String(256))
     player2 = db.Column(db.String(256))
     player3 = db.Column(db.String(256))
@@ -52,9 +53,25 @@ class Teams(db.Model):
                f'Player7: {self.player7} '
 
 
+def query_team(**kwargs):
+    return Teams.query.filter_by(**kwargs).first()
+
+
 @app.route('/', methods=['GET'])
 def home():
     return render_template('home.html')
+
+
+@app.route('/registered_teams', methods=['GET'])
+def show_teams():
+    _teams = Teams.query.all()
+    teams = []
+    for team in _teams:
+        teams.append({
+            'name': team.name,
+            'roster': [team.player1, team.player2, team.player3, team.player4, team.player5, team.player6, team.player7]
+        })
+    return render_template('regsitered_teams.html', teams=teams)
 
 
 @app.route('/submit', methods=['POST'])
@@ -62,50 +79,51 @@ def submit_form():
     team = Teams()
     count = 5
     team.name = team_name = request.form['team_name']
+    team.mobile = request.form['mobile']
     query = Teams.query.filter_by(name=team_name).first()
     if query:
         return render_template('response.html', message=f'Team "{team_name}" is already registered. '
                                                         f'Try using other names(s).')
     team.email = email = request.form['email']
-    query = Teams.query.filter_by(email=email).first()
+    query = query_team(email=email)
     if query:
         return render_template('response.html', message=f'Email "{email}" is already registered. '
                                                         f'Try using another email.')
     team.player1, team.player1_id = request.form['player1'], request.form['player1_id']
-    query = Teams.query.filter_by(player1_id=team.player1_id).first()
+    query = query_team(player1_id=team.player1_id)
     if query:
         return render_template('response.html', message=f'Player with ID "{team.player1_id}" is already registered in '
                                                         f'the Team {query.name}')
     team.player2, team.player2_id = request.form['player2'], request.form['player2_id']
-    query = Teams.query.filter_by(player2_id=team.player2_id).first()
+    query = query_team(player2_id=team.player2_id)
     if query:
         return render_template('response.html', message=f'Player with ID "{team.player2_id}" is already registered in '
                                                         f'the Team {query.name}')
     team.player3, team.player3_id = request.form['player3'], request.form['player3_id']
-    query = Teams.query.filter_by(player3_id=team.player3_id).first()
+    query = query_team(player3_id=team.player3_id)
     if query:
         return render_template('response.html', message=f'Player with ID "{team.player3_id}" is already registered in '
                                                         f'the Team {query.name}')
     team.player4, team.player4_id = request.form['player4'], request.form['player4_id']
-    query = Teams.query.filter_by(player4_id=team.player4_id).first()
+    query = query_team(player4_id=team.player4_id)
     if query:
         return render_template('response.html', message=f'Player with ID "{team.player4_id}" is already registered in '
                                                         f'the Team {query.name}')
     team.player5, team.player5_id = request.form['player5'], request.form['player5_id']
-    query = Teams.query.filter_by(player5_id=team.player5_id).first()
+    query = query_team(player5_id=team.player5_id)
     if query:
         return render_template('response.html', message=f'Player with ID "{team.player5_id}" is already registered in '
                                                         f'the Team {query.name}')
     if hasattr(request.form, 'player6'):
         team.player6, team.player6_id = request.form['player6'], request.form['player6_id']
-        query = Teams.query.filter_by(player6_id=team.player6_id).first()
+        query = query_team(player6_id=team.player6_id)
         if query:
             return render_template('response.html', message=f'Player with ID "{team.player6_id}" is already registered '
                                                             f'in the Team {query.name}')
         count += 1
     if hasattr(request.form, 'player7'):
         team.player7, team.player7_id = request.form['player7'], request.form['player7_id']
-        query = Teams.query.filter_by(player7_id=team.player7_id).first()
+        query = query_team(player7_id=team.player7_id)
         if query:
             return render_template('response.html', message=f'Player with ID "{team.player7_id}" is already registered '
                                                             f'in the Team {query.name}')
@@ -115,7 +133,9 @@ def submit_form():
     try:
         db.session.add(team)
         db.session.commit()
-    except Exception:
+    except Exception as ex:
+        print(f'Error in registering the team {team_name}')
+        print(ex)
         message = f'Error in registaring the Team "{team_name}". Please try again sometime.'
     else:
         if team.name:

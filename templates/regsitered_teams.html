@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <header>
+        <div class="row banner">
+            <div class="banner-text">
+                <h1 class="responsive-headline">The Conquest 2</h1>
+                <h3>Registered Teams</h3>
+                <br>
+            </div>
+        </div>
+    </header>
+    <section id="register">
+        <div class="row">
+            <div class="eight columns">
+                {% for team in teams %}
+                    <h3>{{ team.name }}</h3>
+                    <h1>Roster</h1>
+                    <ul id="teams">
+                        {% for player in team.roster %}
+                            {% if player %}
+                                <li>{{ player }}</li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                    <hr>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}

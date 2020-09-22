@@ -11,6 +11,7 @@
                 <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
                 <li><a class="smoothscroll" href="#register">Register</a></li>
                 <li><a class="smoothscroll" href="#contact">Contact</a></li>
+                <li><a class="smoothscroll" href="/registered_teams" target="_blank">Teams</a></li>
             </ul>
         </nav>
         <div class="row banner">
@@ -52,10 +53,29 @@
                     <div>
                         <label for="receipt">GPay Receipt</label>
                         <input type="text" size="35" id="receipt" name="receipt" required />
+                        <div class="help-tip gpay-tip">
+                            <p>
+                                Please provide the Google Pay receipt for your payment towards registration.
+                                Send the amount to +918056940831 with your team name in the description as it will
+                                help us identify which team has made the payment.
+                            </p>
+                        </div>
                     </div>
+
                     <div>
                         <label for="email">Email</label>
                         <input type="email" size="35" id="email" name="email" required />
+                    </div>
+                    <div>
+                        <label for="mobile">Mobile</label>
+                        <input type="tel" size="35" id="mobile" name="mobile" required />
+                        <div class="help-tip mobile-tip">
+                            <p>
+                                Please provide the Mobile in the format 9XXXX9XXXX.
+                                No need to specify the country code. This will be the point of contact to the team in
+                                case of any changes in the fixtures, so make sure to provide correct one.
+                            </p>
+                        </div>
                     </div>
                     <div>
                         <label for="player1">Player1/Captain</label>
@@ -74,6 +94,9 @@
             <aside class="four columns footer-widgets">
                 <h4>Note</h4>
                 <ul>
+                    <li>
+                        <div><p>The maximum rank cap for a player is Ancient 5</p></div>
+                    </li>
                     <li>
                         <div><p>Registration fee per player is Rs 50</p></div>
                     </li>
