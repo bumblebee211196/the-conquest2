@@ -419,13 +419,18 @@ ul#nav li.current a {
 	background: #FFFFFF;
 }
 
-#register .gpay-tip {
+#register #registerForm .gpay-tip {
     top: 120px;
     left: 280px;
 }
 
-#register .mobile-tip {
+#register #registerForm .mobile-tip {
     top: 323px;
+    left: 280px;
+}
+
+#register #registerStatusForm .reg-id-tip {
+    top: 20px;
     left: 280px;
 }
 
