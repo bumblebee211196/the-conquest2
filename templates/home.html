@@ -38,21 +38,22 @@
 {% endblock scripts %}
 
 {% block content %}
+
+    {% include 'navbar.html' %}
+
     <!-- Header Section Start -->
     <header id="home">
-        <!-- navbar -->
-        {% include 'navbar.html' %}
         <div class="row banner">
             <div class="banner-text">
-                <h1 class="responsive-headline">The Conquest 2</h1>
+{#                <h1 class="responsive-headline">The Conquest 2</h1>#}
                 <h3>
-                    A friendly Dota2 Tournament organised to unearth the best players and provide them an
+                    A friendly Dota 2 Tournament organised to unearth the best players and provide them an
                     opportunity to showcase their skills. Discover the best talent across, while enhancing
                     your sense of community while competing for a prize money of <span>5000</span> rupees.
                 </h3>
                 <h3>
-                    The tournament starts on 11<sup>th</sup> of October 2020. If there are any change
-                    of dates in fixtures, we shall update it over here.
+                    The tournament starts on 11<sup>th</sup> of October 2020. Any change of dates in fixtures,
+                    shall be updated over here.
                 </h3>
                 <br>
                 <ul class="social">
@@ -81,7 +82,7 @@
                                required />
                     </div>
                     <div>
-                        <label for="receipt">GPay Receipt</label>
+                        <label for="receipt">GPay UPI Transaction ID</label>
                         <input type="text" size="35" id="receipt" name="receipt" placeholder="000011112222" required />
                         <div class="help-tip gpay-tip">
                             <p>
@@ -126,7 +127,7 @@
                 </div>
             </div>
             <aside class="four columns footer-widgets">
-                <h4>Note</h4>
+                <h4><span>Note</span></h4>
                 <ul>
                     <li>
                         <div><p>The maximum rank cap for a player is Legend 5</p></div>
