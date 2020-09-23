@@ -44,11 +44,12 @@
                 <form method="POST" id="registerForm" name="registerForm" onsubmit="return validateForm();" action="submit">
                     <div>
                         <label for="team_name">Team Name</label>
-                        <input type="text" size="35" id="team_name" name="team_name" autofocus required />
+                        <input type="text" size="35" id="team_name" name="team_name" placeholder="OG" autofocus
+                               required />
                     </div>
                     <div>
                         <label for="receipt">GPay Receipt</label>
-                        <input type="text" size="35" id="receipt" name="receipt" required />
+                        <input type="text" size="35" id="receipt" name="receipt" placeholder="000011112222" required />
                         <div class="help-tip gpay-tip">
                             <p>
                                 Please provide the Google Pay receipt for your payment towards registration.
@@ -60,7 +61,8 @@
 
                     <div>
                         <label for="email">Email</label>
-                        <input type="email" size="35" id="email" name="email" required />
+                        <input type="email" size="35" id="email" name="email" placeholder="youemail@domain.com"
+                               required />
                     </div>
                     <div>
                         <label for="mobile">Mobile</label>
