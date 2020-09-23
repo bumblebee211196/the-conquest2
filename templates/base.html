@@ -16,38 +16,8 @@
         <!-- Script -->
         <!-- Favicons -->
         <link rel="shortcut icon" href="../static/images/favicon.png" />
-        <script>
-            let counter = 2;
-            let limit = 7;
-            function addPlayer() {
-                if (counter > limit) {
-                    alert("You have reached the limit of adding players");
-                } else {
-                    let newDiv = document.createElement("div");
-                    newDiv.innerHTML = "<label for='player" + counter + "'>Player " + counter + " </label>\n" +
-                        "<input type='text' size='35' id='player" + counter + "' " + "name='player" + counter + "' autofocus required>";
-                    document.getElementById("registerForm").appendChild(newDiv);
-                    newDiv = document.createElement("div");
-                    newDiv.innerHTML = "<label for='player" + counter + "_id'>Player " + counter + " Steam Friend ID</label>\n" +
-                        "<input type='text' size='35' id='player" + counter + "_id' " + "name='player" + counter + "_id' autofocus required>";
-                    document.getElementById("registerForm").appendChild(newDiv);
-                    counter++;
-                }
-                if (counter === limit + 1) {
-                    document.getElementById("addPlayerDiv").removeChild(document.getElementById("addPlayer"));
-                }
-            }
-            function validateForm() {
-                for (let i = 2; i <= 5; i++) {
-                    if (document.getElementById("player" + i)) {
-                    } else {
-                        alert("Roster must contain a minimum of 5 plauyers!");
-                        return false;
-                    }
-                }
-                return true;
-            }
-        </script>
+        {% block scripts %}
+        {% endblock scripts %}
     </head>
 <body>
     {% block content %}

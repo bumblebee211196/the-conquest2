@@ -1,19 +1,47 @@
 {% extends 'base.html' %}
 
+{% block scripts %}
+
+    <script>
+            let counter = 2;
+            let limit = 7;
+            function addPlayer() {
+                if (counter > limit) {
+                    alert("You have reached the limit of adding players");
+                } else {
+                    let newDiv = document.createElement("div");
+                    newDiv.innerHTML = "<label for='player" + counter + "'>Player " + counter + " </label>\n" +
+                        "<input type='text' size='35' id='player" + counter + "' " + "name='player" + counter + "' autofocus required>";
+                    document.getElementById("registerForm").appendChild(newDiv);
+                    newDiv = document.createElement("div");
+                    newDiv.innerHTML = "<label for='player" + counter + "_id'>Player " + counter + " Steam Friend ID</label>\n" +
+                        "<input type='text' size='35' id='player" + counter + "_id' " + "name='player" + counter + "_id' autofocus required>";
+                    document.getElementById("registerForm").appendChild(newDiv);
+                    counter++;
+                }
+                if (counter === limit + 1) {
+                    document.getElementById("addPlayerDiv").removeChild(document.getElementById("addPlayer"));
+                }
+            }
+            function validateForm() {
+                for (let i = 2; i <= 5; i++) {
+                    if (document.getElementById("player" + i)) {
+                    } else {
+                        alert("Roster must contain a minimum of 5 plauyers!");
+                        return false;
+                    }
+                }
+                return true;
+            }
+        </script>
+
+{% endblock scripts %}
+
 {% block content %}
     <!-- Header Section Start -->
     <header id="home">
         <!-- navbar -->
-        <nav id="nav-wrap">
-            <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
-            <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
-            <ul id="nav" class="nav">
-                <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
-                <li><a class="smoothscroll" href="#register">Register</a></li>
-                <li><a class="smoothscroll" href="#contact">Contact</a></li>
-                <li><a class="smoothscroll" href="/registered_teams" target="_blank">Teams</a></li>
-            </ul>
-        </nav>
+        {% include 'navbar.html' %}
         <div class="row banner">
             <div class="banner-text">
                 <h1 class="responsive-headline">The Conquest 2</h1>
