@@ -5,6 +5,7 @@
     <header>
         <div class="row banner">
             <div class="banner-text">
+                <h1 class="responsive-headline">{{ title }}</h1>
                 <h3 class="responsive-headline">{{ message }}</h3>
             </div>
             <br>
@@ -13,5 +14,23 @@
             </ul>
         </div>
     </header>
+    {% if team %}
+        <section id="register">
+            <div class="row">
+                <div class="eight columns">
+                    <h3>{{ team.name }}</h3>
+                    <h1>Roster</h1>
+                    <ul id="teams">
+                        {% for player in team.roster %}
+                            {% if player %}
+                                <li>{{ player }}</li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                    <hr>
+                </div>
+            </div>
+        </section>
+    {% endif %}
 
 {% endblock content %}
