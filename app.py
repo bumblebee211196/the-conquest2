@@ -177,8 +177,6 @@ def team_status():
                 return render_template('response.html',
                                        title=f'Team Registration Status',
                                        message='Your team\'s payment confirmation is pending.')
-        else:
-            return render_template('response.html', title='Oops!', message='No such team found.')
 
 
 # ERRORs section
