@@ -6,10 +6,10 @@ from mail_client import MailClient
 
 app = Flask(__name__)
 SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://{username}:{password}@{hostname}/{databasename}'.format(
-    username=os.environ.get('USERNAME'),
-    password=os.environ.get('PASSWORD'),
+    username=os.environ.get('DB_USERNAME'),
+    password=os.environ.get('DB_PASSWORD'),
     hostname='remotemysql.com',
-    databasename=os.environ.get('DATABASENAME'),
+    databasename=os.environ.get('DB_NAME'),
 )
 
 app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
