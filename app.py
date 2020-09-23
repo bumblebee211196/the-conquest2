@@ -62,10 +62,12 @@ def show_teams():
     _teams = Teams.query.all()
     teams = []
     for team in _teams:
-        teams.append({
-            'name': team.name,
-            'roster': [team.player1, team.player2, team.player3, team.player4, team.player5, team.player6, team.player7]
-        })
+        if team.status == 'verified':
+            teams.append({
+                'name': team.name,
+                'roster': [team.player1, team.player2, team.player3, team.player4, team.player5, team.player6,
+                           team.player7]
+            })
     return render_template('regsitered_teams.html', teams=teams)
 
 
