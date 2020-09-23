@@ -1,7 +1,8 @@
+import os
 import smtplib
 from email.message import EmailMessage
+
 from jinja2 import Environment, FileSystemLoader
-import os
 
 MAIL_USER = os.environ.get('MAIL_USER')
 MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
@@ -16,10 +17,10 @@ class MailClient:
             smtp.send_message(message)
 
     @classmethod
-    def send_registration_cofirmation(cls, to_addr, team_name):
+    def send_registration_cofirmation(cls, to_addr, team_name, team_reg_id):
         env = Environment(loader=FileSystemLoader('./templates'))
         template = env.get_template('mail_template.html')
-        output = template.render(team_name=team_name)
+        output = template.render(team_name=team_name, team_reg_id=team_reg_id)
         message = EmailMessage()
         message['From'] = MAIL_USER
         message['To'] = to_addr
