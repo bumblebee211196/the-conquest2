@@ -148,7 +148,7 @@ def submit_form():
     else:
         if team.name:
             MailClient.send_registration_cofirmation(email, team_name, team_reg_id)
-            title = 'Registration Successfully'
+            title = 'Registration Successfull'
             message = f'Team "{team_name}" has been registered successfully. Your team\'s registration ID is ' \
                       f'{team_reg_id}. Kindly save this and use it to check the registration status of your team.'
         else:
