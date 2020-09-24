@@ -326,15 +326,18 @@ ul#nav li.current a {
     color: #313131;
 }
 
-#register h1 {
+#register h1,
+#register h4 {
     font: 18px/24px 'opensans-bold', sans-serif;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-#register h1 span {
+#register h1 span,
+#register h4 span {
     border-bottom: 3px solid #11ABB0;
-    padding-bottom: 6px;
+    padding-bottom: 3px;
+    margin-bottom: 3px;
 }
 
 #register h3 {
@@ -417,11 +420,6 @@ ul#nav li.current a {
 #register button.submit:hover {
 	color: #0D0D0D;
 	background: #FFFFFF;
-}
-
-#register h4 span {
-    border-bottom: 3px solid #11ABB0;
-    padding-bottom: 2px;
 }
 
 #register #registerForm .gpay-tip {
