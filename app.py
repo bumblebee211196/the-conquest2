@@ -118,7 +118,7 @@ def submit_form():
         return render_template('response.html', title=title,
                                message=f'Player with ID "{team.player5_id}" is already registered in the Team '
                                        f'{query.name}')
-    if hasattr(request.form, 'player6'):
+    if request.form.get('player6'):
         team.player6, team.player6_id = request.form['player6'], request.form['player6_id']
         query = query_team(player6_id=team.player6_id)
         if query:
@@ -126,7 +126,7 @@ def submit_form():
                                    message=f'Player with ID "{team.player6_id}" is already registered in the Team '
                                            f'{query.name}')
         count += 1
-    if hasattr(request.form, 'player7'):
+    if request.form.get('player7'):
         team.player7, team.player7_id = request.form['player7'], request.form['player7_id']
         query = query_team(player7_id=team.player7_id)
         if query:
