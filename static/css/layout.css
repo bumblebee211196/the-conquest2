@@ -441,6 +441,23 @@ ul#nav li.current a {
     font: 25px/30px 'opensans-bold', sans-serif;
 }
 
+#register .not_verified {
+    color: #D93E3E;
+}
+
+#register .payment_verified {
+    color: #D9D93A;
+}
+
+#register .players_verified {
+    color: #3ED93E;
+}
+
+#register .legend {
+    display: inline-block;
+    padding-left: 3px;
+}
+
 /* ------------------------------------------------------------------ */
 /* ------------------------------------------------------------------ */
 /* e. Contact Section

@@ -15,10 +15,10 @@
     </header>
     <section id="register">
         <div class="row">
-            <div class="eight columns">
+            <div class="seven columns">
             {% if teams %}
                 {% for team in teams %}
-                    <h3>{{ team.name }}</h3>
+                    <h3>{{ team.name }}   <i class="fa fa-check-circle {{ team.status }}"></i></h3>
                     <h1>Roster</h1>
                     <ul id="teams">
                         {% for player in team.roster %}
@@ -33,6 +33,29 @@
                 <h2 class="no-teams">No teams have registered yet!</h2>
             {% endif %}
             </div>
+            <aside class="five columns footer-widgets">
+                <h4><span>Legend</span></h4>
+                <ul>
+                    <li>
+                        <div>
+                            <i class="fa fa-check-circle not_verified"></i>
+                            <p class="legend">No verification is done yet</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <i class="fa fa-check-circle payment_verified"></i>
+                            <p class="legend">Payment verification is done</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <i class="fa fa-check-circle players_verified"></i>
+                            <p class="legend">Payment & Player verification (for smurffs) is done</p>
+                        </div>
+                    </li>
+                </ul>
+            </aside>
         </div>
     </section>
 
