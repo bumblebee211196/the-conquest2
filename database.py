@@ -5,7 +5,7 @@ def make_db_connection(app):
     sqlalchemy_database_uri = 'mysql+pymysql://{username}:{password}@{hostname}/{databasename}'.format(
         username=os.environ.get('DB_USERNAME'),
         password=os.environ.get('DB_PASSWORD'),
-        hostname='remotemysql.com',
+        hostname='b81aignjnhxhsyt2kcnq-mysql.services.clever-cloud.com',
         databasename=os.environ.get('DB_NAME'),
     )
 
