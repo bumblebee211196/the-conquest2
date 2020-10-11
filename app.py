@@ -167,7 +167,7 @@ def team_status():
             if team.status == 'players_verified':
                 return render_template('response.html',
                                        title=f'Team Registration Status',
-                                       message='Your team\'s player\'s and payment have been verified. Below is your '
+                                       message='Your team\'s players and payment have been verified. Below is your '
                                                'team '
                                                'details',
                                        team={
