@@ -164,7 +164,18 @@ def team_status():
         reg_id = request.form['registration_id']
         team = query_team(reg_id=reg_id)
         if team:
-            if team.status == 'verified':
+            if team.status == 'players_verified':
+                return render_template('response.html',
+                                       title=f'Team Registration Status',
+                                       message='Your team\'s player\'s and payment have been verified. Below is your '
+                                               'team '
+                                               'details',
+                                       team={
+                                           'name': team.name,
+                                           'roster': [team.player1, team.player2, team.player3, team.player4,
+                                                      team.player5, team.player6, team.player7]
+                                       })
+            elif team.status == 'payment_verified':
                 return render_template('response.html',
                                        title=f'Team Registration Status',
                                        message='Your team\'s payment has been verified. Below is your team details',
@@ -176,7 +187,12 @@ def team_status():
             elif team.status == 'not_verified':
                 return render_template('response.html',
                                        title=f'Team Registration Status',
-                                       message='Your team\'s payment confirmation is pending.')
+                                       message='Your team\'s payment confirmation is pending.',
+                                       team={
+                                           'name': team.name,
+                                           'roster': [team.player1, team.player2, team.player3, team.player4,
+                                                      team.player5, team.player6, team.player7]
+                                       })
         else:
             return render_template('response.html', title='Oops!', message='No such team found.')
 
